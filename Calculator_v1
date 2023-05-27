@@ -194,8 +194,15 @@ def load_table():
     connection_obj_4.close()
     return 0
 
-
-def damage_calc(weapon_name, motion_name, monster_name, part, switch):
+def skills_list ():
+    i = 0
+    loops = int(input('how many skills are you using?: '))
+    skill_names = []
+    for i in range(loops):
+        skill_name = str(input('What skill are you using?: '))
+        skill_names.append(skill_name)
+    return skill_names
+def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
     crit_mod = 1.25
     ecrit_mod = 1
     connection_obj = sqlite3.connect('weapon.db')
@@ -221,7 +228,7 @@ def damage_calc(weapon_name, motion_name, monster_name, part, switch):
     cur.execute("SELECT * FROM monster WHERE name = (?) AND part = (?)", (monster_name, part,))
     rows4 = cur.fetchall()
     for row3 in rows4:
-        name, part, cut, blunt, pierce, fire, water, ice, thunder, dragon, ko = row3
+        name, hitzone, cut, blunt, pierce, fire, water, ice, thunder, dragon, ko = row3
     connection_obj.close()
 
     if damage_type == 'cut':
@@ -246,25 +253,20 @@ def damage_calc(weapon_name, motion_name, monster_name, part, switch):
     else:
         element_resist = 1
 
-    if switch == 1:
-        i = 0
-        loops = int(input('how many skills are you using?:'))
-        while i < loops:
-            skills_name = str(input('What skill are you using?'))
-            connection_obj = sqlite3.connect('skills.db')
-            cur = connection_obj.cursor()
-            cur.execute("SELECT * FROM skills WHERE name = (?)", (skills_name,))
-            rows = cur.fetchall()
-            for row in rows:
-                name, skill_type, attack_boost_mod, element_boost_mod, attack_boost_flat, element_boost_flat, \
-                affinity_boost, crit_boost, ecrit_boost = row
-            connection_obj.close()
-            attack = (attack * attack_boost_mod) + attack_boost_flat
-            element = element * element_boost_mod + element_boost_flat
-            affinity = affinity + affinity_boost
-            crit_mod = crit_boost
-            ecrit_mod = ecrit_boost
-            i += 1
+    for i in range(len(skill_names)):
+        connection_obj = sqlite3.connect('skills.db')
+        cur = connection_obj.cursor()
+        cur.execute("SELECT * FROM skills WHERE name = (?)", (skill_names[i],))
+        rows = cur.fetchall()
+        for row in rows:
+            skill_name, skill_type, attack_boost_mod, element_boost_mod, attack_boost_flat, element_boost_flat, \
+            affinity_boost, crit_boost, ecrit_boost = row
+        connection_obj.close()
+        attack = (attack * attack_boost_mod) + attack_boost_flat
+        element = element * element_boost_mod + element_boost_flat
+        affinity = affinity + affinity_boost
+        crit_mod = crit_boost
+        ecrit_mod = ecrit_boost
 
     damage = int(attack) * (1 + int(crit_mod) * int(affinity) / 100) * int(raw) / 100 * int(sharpness) * int(damage_resist) / 100 + \
              int(element) * (1 + int(ecrit_mod) * int(affinity) / 100) * int(element_mod) * int(esharpness) * int(element_resist) / 100
@@ -273,40 +275,42 @@ def damage_calc(weapon_name, motion_name, monster_name, part, switch):
 
 # main
 i = 0
+attack = 0
+element = 0
+affinity = 0
+crit_boost = 1.25
+ecrit_boost = 1
 while i == 0:
     operation = int(input('\nReset Tables = 0\n'
                       'Load Sheet = 1\n'    
-                      'Calculate Combo Damage = 2\n' 
-                      'Calculate Combo Damage WITH SKILLS = 3\n'
+                      'Selection Weapons/Targets = 2\n'
+                      'Select Skills = 3\n'
+                      'Calculate Combo Damage = 4\n'
                       'Exit = 9\n'
                     'Which Operation would you like to perform?: '))
     if operation == 0:
         create_table()
+        continue
     if operation == 1:
         load_table()
+        continue
     if operation == 2:
-        j = 0
-        damage = 0
         weapon = str(input('what weapon are you using?: '))
         monster = str(input('what monster are you hunting?: '))
         part = str(input('what part are you hitting?: '))
-        length = int(input('how many attacks are you using?:'))
-        while j < length:
-            motion = str(input('what motion are you using?: '))
-            damage += damage_calc(weapon, motion, monster, part, 0)
-            j += 1
-        print("Total Damage is:", damage, 0)
+        continue
     if operation == 3:
-        k = 0
-        damage_2 = 0
-        weapon_2 = str(input('what weapon are you using?: '))
-        monster_2 = str(input('what monster are you hunting?: '))
-        part_2 = str(input('what part are you hitting?: '))
-        length_2 = int(input('how many attacks are you using?:'))
-        while k < length_2:
-            motion_2 = str(input('what motion are you using?: '))
-            damage_2 += damage_calc(weapon_2, motion_2, monster_2, part_2, 1)
-            k += 1
-        print("Total Damage is:", damage_2)
+        saved_list = []
+        save_list = skills_list()
+        print(save_list)
+        continue
+    if operation == 4:
+        j = 0
+        damage = 0
+        length = int(input('how many attacks are you using?: '))
+        for j in range(length):
+            motion = str(input('what motion are you using?: '))
+            damage += damage_calc(weapon, motion, monster, part, save_list)
+        print("Total Damage is:", damage)
     else:
         i = 1
