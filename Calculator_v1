@@ -1,0 +1,312 @@
+import sqlite3
+import csv
+
+def create_table():
+    connection_obj = sqlite3.connect('weapon.db')
+    cursor_obj = connection_obj.cursor()
+    cursor_obj.execute("DROP TABLE IF EXISTS WEAPON")
+    weapon_table = """ 
+        CREATE TABLE WEAPON (
+        name CHAR(255) NOT NULL,
+        weapon_type CHAR(25) NOT NULL,
+        raw_attack INT,
+        affinity INT,
+        element INT,
+        status INT,
+        type CHAR(25) NOT NULL,
+        sub_type CHAR(25) NOT NULL,
+        sharpness INT,
+        esharpness INT,
+        slots CHAR(5) NOT NULL,
+        rampage_slots INT
+        );
+    """
+    cursor_obj.execute(weapon_table)
+    print('Weapon Table is ready')
+    connection_obj.close()
+
+
+    connection_obj_3 = sqlite3.connect('skills.db')
+    cursor_obj_3 = connection_obj_3.cursor()
+    cursor_obj_3.execute("DROP TABLE IF EXISTS SKILLS")
+    skills_table = """ 
+        CREATE TABLE SKILLS (
+        name CHAR(25) NOT NULL,
+        type CHAR(25) NOT NULL,
+        attack_boost_mod INT,
+        element_boost_mod INT,
+        attack_boost_flat INT,
+        element_boost_flat INT,
+        affinity_boost INT,
+        crit_boost INT,
+        element_crit_boost INT 
+        );
+    """
+    cursor_obj_3.execute(skills_table)
+    print('Skill Table is ready')
+    connection_obj_3.close()
+
+    connection_obj_4 = sqlite3.connect('monster.db')
+    cursor_obj_4 = connection_obj_4.cursor()
+    cursor_obj_4.execute("DROP TABLE IF EXISTS MONSTER")
+    monster_table = """ 
+               CREATE TABLE MONSTER (
+               name CHAR(255) NOT NULL,
+               part CHAR(25) NOT NULL,
+               cut INT,
+               blunt INT,
+               pierce INT,
+               fire_def INT,
+               water_def INT,
+               ice_def INT,
+               thunder_def INT,
+               dragon_def INT,
+               ko INT
+               );
+           """
+    cursor_obj_4.execute(monster_table)
+    print('Monster Table is ready')
+    connection_obj_4.close()
+
+    connection_obj_5 = sqlite3.connect('motion.db')
+    cursor_obj_5 = connection_obj_5.cursor()
+    cursor_obj_5.execute("DROP TABLE IF EXISTS MOTION")
+    motion_table = """ 
+               CREATE TABLE MOTION (
+               weapon CHAR (25) NOT NULL,
+               move_name CHAR(255) NOT NULL,
+               damage_type NOT NULL,
+               raw INT,
+               element INT, 
+               status INT,
+               part_break INT,
+               stun INT, 
+               exhaust INT,
+               mount INT,
+               misc INT
+               );
+           """
+    cursor_obj_5.execute(motion_table)
+    print('Motion Table is ready')
+    connection_obj_5.close()
+    return 0
+
+
+def load_table():
+    connection_obj = sqlite3.connect('weapon.db')
+    cursor_obj = connection_obj.cursor()
+    with open("chargeblades.csv", 'r') as file:
+        csvreader = csv.reader(file)
+        for row1 in csvreader:
+            print(row1)
+            name = row1[0]
+            weapon_type = row1[1]
+            raw_attack = row1[2]
+            affinity = row1[3]
+            element = row1[4]
+            status = row1[5]
+            element_type = row1[6]
+            sub_type = row1[7]
+            sharpness = row1[8]
+            esharpness = row1[9]
+            slots = row1[10]
+            rampage_slots = row1[11]
+            cursor_obj.execute("INSERT INTO weapon (""name, weapon_type, raw_attack, affinity, element, status,"
+                               "type, sub_type, sharpness, esharpness, slots, rampage_slots)"
+                               "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+                               (name, weapon_type, raw_attack, affinity, element, status,
+                                element_type, sub_type, sharpness, esharpness, slots, rampage_slots))
+    connection_obj.commit()
+    connection_obj.close()
+    connection_obj_2 = sqlite3.connect('motion.db')
+    cursor_obj_2 = connection_obj_2.cursor()
+    with open("chargeblademotions.csv", 'r') as file:
+        csvreader_2 = csv.reader(file)
+        for row2 in csvreader_2:
+            print(row2)
+            weapon = row2[0]
+            move_name = row2[1]
+            damage_type = row2[2]
+            raw = row2[3]
+            element = row2[4]
+            status = row2[5]
+            part_break = row2[6]
+            stun = row2[7]
+            exhaust = row2[8]
+            mount = row2[9]
+            misc = row2[10]
+            cursor_obj_2.execute("INSERT INTO motion (""weapon, move_name, damage_type, raw, element, status,"
+                               "part_break, stun, exhaust, mount, misc)"
+                               "VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                               (weapon, move_name, damage_type, raw, element, status,
+                                part_break, stun, exhaust, mount, misc))
+    connection_obj_2.commit()
+    connection_obj_2.close()
+
+    connection_obj_3 = sqlite3.connect('monster.db')
+    cursor_obj_3 = connection_obj_3.cursor()
+    with open("monster.csv", 'r') as file:
+        csvreader_3 = csv.reader(file)
+        for row3 in csvreader_3:
+            print(row3)
+            name = row3[0]
+            part = row3[1]
+            cut = row3[2]
+            blunt = row3[3]
+            pierce = row3[4]
+            fire_def = row3[5]
+            water_def = row3[6]
+            ice_def = row3[7]
+            thunder_def = row3[8]
+            dragon_def = row3[9]
+            ko = row3[10]
+            cursor_obj_3.execute("INSERT INTO monster (""name, part, cut, blunt, pierce, fire_def,"
+                "water_def, ice_def, thunder_def, dragon_def, ko)"
+                    "VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                        (name, part, cut, blunt, pierce, fire_def,
+                            water_def, ice_def, thunder_def, dragon_def, ko))
+    connection_obj_3.commit()
+    connection_obj_3.close()
+
+    connection_obj_4 = sqlite3.connect('skills.db')
+    cursor_obj_4 = connection_obj_4.cursor()
+    with open("skills.csv", 'r') as file:
+        csvreader_4 = csv.reader(file)
+        for row4 in csvreader_4:
+            print(row4)
+            name = row4[0]
+            skill_type = row4[1]
+            attack_boost_mod = row4[2]
+            element_boost_mod = row4[3]
+            attack_boost_flat = row4[4]
+            element_boost_flat = row4[5]
+            affinity_boost = row4[6]
+            crit_boost = row4[7]
+            element_crit_boost = row4[8]
+            cursor_obj_4.execute("INSERT INTO skills (""name, type, attack_boost_mod, element_boost_mod, "
+                                 "attack_boost_flat, element_boost_flat, affinity_boost,"
+                                 "crit_boost, element_crit_boost)"
+                                 "VALUES (?,?,?,?,?,?,?,?,?)",
+                                 (name, skill_type, attack_boost_mod, element_boost_mod,
+                                  attack_boost_flat, element_boost_flat, affinity_boost,
+                                  crit_boost, element_crit_boost))
+    connection_obj_4.commit()
+    connection_obj_4.close()
+    return 0
+
+
+def damage_calc(weapon_name, motion_name, monster_name, part, switch):
+    crit_mod = 1.25
+    ecrit_mod = 1
+    connection_obj = sqlite3.connect('weapon.db')
+    cur = connection_obj.cursor()
+    cur.execute("SELECT * FROM weapon WHERE name = (?)", (weapon_name,))
+    rows = cur.fetchall()
+    for row in rows:
+        name, type, attack, affinity, element, status, element_type, \
+        subtype, sharpness, esharpness, slots, rampage = row
+    connection_obj.close()
+
+    connection_obj = sqlite3.connect('motion.db')
+    cur = connection_obj.cursor()
+    cur.execute("SELECT * FROM motion WHERE move_name = (?)", (motion_name,))
+    row2 = cur.fetchall()
+    for row1 in row2:
+        weapon_type, move_name, damage_type, raw, element_mod, \
+        status_mod, part_break, stun, exhaust, mount, misc = row1
+    connection_obj.close()
+
+    connection_obj = sqlite3.connect('monster.db')
+    cur = connection_obj.cursor()
+    cur.execute("SELECT * FROM monster WHERE name = (?) AND part = (?)", (monster_name, part,))
+    rows4 = cur.fetchall()
+    for row3 in rows4:
+        name, part, cut, blunt, pierce, fire, water, ice, thunder, dragon, ko = row3
+    connection_obj.close()
+
+    if damage_type == 'cut':
+        damage_resist = cut
+    elif damage_type == 'blunt':
+        damage_resist = blunt
+    elif damage_type == 'pierce':
+        damage_resist = pierce
+    else:
+        damage_resist = 1
+
+    if element_type == 'fire':
+        element_resist = fire
+    elif element_type == 'water':
+        element_resist = water
+    elif element_type == 'ice':
+        element_resist = ice
+    elif element_type == 'thunder':
+        element_resist = thunder
+    elif element_type == 'dragon':
+        element_resist = dragon
+    else:
+        element_resist = 1
+
+    if switch == 1:
+        i = 0
+        loops = int(input('how many skills are you using?:'))
+        while i < loops:
+            skills_name = str(input('What skill are you using?'))
+            connection_obj = sqlite3.connect('skills.db')
+            cur = connection_obj.cursor()
+            cur.execute("SELECT * FROM skills WHERE name = (?)", (skills_name,))
+            rows = cur.fetchall()
+            for row in rows:
+                name, skill_type, attack_boost_mod, element_boost_mod, attack_boost_flat, element_boost_flat, \
+                affinity_boost, crit_boost, ecrit_boost = row
+            connection_obj.close()
+            attack = (attack * attack_boost_mod) + attack_boost_flat
+            element = element * element_boost_mod + element_boost_flat
+            affinity = affinity + affinity_boost
+            crit_mod = crit_boost
+            ecrit_mod = ecrit_boost
+            i += 1
+
+    damage = int(attack) * (1 + int(crit_mod) * int(affinity) / 100) * int(raw) / 100 * int(sharpness) * int(damage_resist) / 100 + \
+             int(element) * (1 + int(ecrit_mod) * int(affinity) / 100) * int(element_mod) * int(esharpness) * int(element_resist) / 100
+    print("Motion Damage is : ", damage)
+    return damage
+
+# main
+i = 0
+while i == 0:
+    operation = int(input('\nReset Tables = 0\n'
+                      'Load Sheet = 1\n'    
+                      'Calculate Combo Damage = 2\n' 
+                      'Calculate Combo Damage WITH SKILLS = 3\n'
+                      'Exit = 9\n'
+                    'Which Operation would you like to perform?: '))
+    if operation == 0:
+        create_table()
+    if operation == 1:
+        load_table()
+    if operation == 2:
+        j = 0
+        damage = 0
+        weapon = str(input('what weapon are you using?: '))
+        monster = str(input('what monster are you hunting?: '))
+        part = str(input('what part are you hitting?: '))
+        length = int(input('how many attacks are you using?:'))
+        while j < length:
+            motion = str(input('what motion are you using?: '))
+            damage += damage_calc(weapon, motion, monster, part, 0)
+            j += 1
+        print("Total Damage is:", damage, 0)
+    if operation == 3:
+        k = 0
+        damage_2 = 0
+        weapon_2 = str(input('what weapon are you using?: '))
+        monster_2 = str(input('what monster are you hunting?: '))
+        part_2 = str(input('what part are you hitting?: '))
+        length_2 = int(input('how many attacks are you using?:'))
+        while k < length_2:
+            motion_2 = str(input('what motion are you using?: '))
+            damage_2 += damage_calc(weapon_2, motion_2, monster_2, part_2, 1)
+            k += 1
+        print("Total Damage is:", damage_2)
+    else:
+        i = 1
