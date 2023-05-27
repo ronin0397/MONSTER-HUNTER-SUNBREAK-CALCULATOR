@@ -1,0 +1,60 @@
+name,Weapon type,raw attack,affinity,element,Status,element type,Phial type,sharpness,esharpness,Slot,rampage slot
+pyre rakna,charge blade,320,20,0,22,blast,impact,1.32,1.13,2-0-0,2
+madnamalo,charge blade,330,0,0,32,blast,impact,1.39,1.20,3-2-0,2
+teostra,charge blade,330,0,0,55,blast,impact,1.32,1.13,0-0-0,3
+valstrax,charge blade,340,0,60,0,dragon,element,1.32,1.13,3-0-0,2
+dragon,charge blade,330,-5,55,0,dragon,element,1.32,1.13,2-1-1,3
+chaotic gore,charge blade,340,15,48,0,dragon,impact,1.32,1.13,3-1-1,2
+shagaru,charge blade,300,35,42,0,dragon,impact,1.39,1.20,0-0-0,1
+gore,charge blade,320,20,30,0,dragon,impact,1.39,1.20,2-0-0,2
+malzeno,charge blade,330,0,27,0,dragon,impact,1.39,1.20,4-0-0,1
+aelucanth,charge blade,330,15,24,0,dragon,impact,1.32,1.13,2-0-0,2
+ibushi,charge blade,340,0,23,0,dragon,impact,1.39,1.20,0-0-0,2
+gaismagorm,charge blade,350,-10,17,0,dragon,impact,1.39,1.20,0-0-0,3
+rakna,charge blade,300,30,66,0,fire,element,1.32,1.13,2-1-1,2
+rathalos,charge blade,320,0,60,0,fire,impact,1.39,1.20,2-0-0,3
+rathian,charge blade,330,0,54,0,fire,element,1.32,1.13,3-1-0,3
+silver rath,charge blade,330,15,48,0,fire,element,1.32,1.13,4-0-0,2
+violet mizutsune,charge blade,320,10,18,0,fire,impact,1.39,1.20,2-2-2,1
+flaming espinas,charge blade,310,15,45,30,fire/poison,element,1.39,1.20,3-1-1,3
+auroracanth,charge blade,320,0,71,0,ice,element,1.32,1.13,1-1-0,2
+kushala,charge blade,320,10,62,0,ice,impact,1.32,1.13,1-0-0,3
+barioth,charge blade,310,25,48,0,ice,element,1.32,1.13,1-1-1,1
+lunagaron,charge blade,330,0,32,0,ice,impact,1.39,1.20,1-1-0,2
+velkhana,charge blade,340,0,28,0,ice,element,1.39,1.20,4-0-0,3
+goss,charge blade,350,-20,23,0,ice,impact,1.39,1.20,3-0-0,2
+tigrex,charge blade,350,-15,0,0,none,impact,1.39,1.20,1-0-0,2
+izuchi,charge blade,320,20,0,0,none,impact,1.32,1.13,2-1-0,1
+Bone,charge blade,350,0,0,0,none,impact,1.32,1.13,0-0-0,1
+kamura,charge blade,330,0,0,0,none,impact,1.39,1.20,4-2-0,2
+nargacuga,charge blade,300,40,0,0,none,impact,1.39,1.20,2-0-0,1
+royal order,charge blade,320,10,0,0,none,impact,1.39,1.20,2-1-0,2
+seregios,charge blade,320,10,0,0,none,impact,1.39,1.20,1-0-0,2
+diablos,charge blade,370,-30,0,0,none,impact,1.32,1.13,3-0-0,2
+barroth,charge blade,360,-20,0,0,none,impact,1.32,1.13,1-0-0,2
+ore,charge blade,340,0,0,0,none,impact,1.32,1.13,2-2-0,3
+smithy,charge blade,340,0,0,0,none,impact,1.32,1.13,3-0-0,3
+garangolm,charge blade,360,0,0,0,none,impact,1.20,1.20,4-2-1,3
+felyne,charge blade,330,0,0,30,paralysis,impact,1.32,1.13,1-1-1,1
+volvidon,charge blade,320,0,0,23,paralysis,impact,1.32,1.13,1-0-0,2
+lucent,charge blade,340,0,0,18,poison,impact,1.39,1.20,4-2-0,1
+gold rath,charge blade,330,10,0,46,poison,impact,1.32,1.13,4-0-0,2
+Espinas,charge blade,320,20,0,23,poison,impact,1.39,1.20,1-0-0,1
+basarios,charge blade,330,0,0,40,poison,impact,1.32,1.13,3-0-0,2
+poison,charge blade,350,-10,0,25,poison,impact,1.32,1.13,1-1-0,2
+chameleos,charge blade,320,0,0,52,poison,impact,1.39,1.20,3-0-0,2
+antique,charge blade,330,0,0,13,sleep,impact,1.39,1.20,0-0-0,2
+somnacanth,charge blade,340,0,0,25,sleep,impact,1.32,1.13,3-1-0,2
+narwa,charge blade,310,0,75,0,thunder,element,1.32,1.13,0-0-0,2
+thunder,charge blade,320,20,58,0,thunder,element,1.32,1.13,3-0-0,3
+zinogre,charge blade,330,0,52,0,thunder,element,1.39,1.20,2-1-0,2
+tobi,charge blade,330,15,42,0,thunder,impact,1.32,1.13,2-1-1,1
+astalos,charge blade,310,30,25,0,thunder,impact,1.39,1.20,1-0-0,2
+rajang,charge blade,340,0,24,0,thunder,impact,1.32,1.13,0-0-0,2
+furious rajang,charge blade,330,0,18,0,thunder,impact,1.39,1.20,2-2-0,1
+mizutsune,charge blade,310,20,58,0,water,impact,1.39,1.20,1-0-0,2
+vaik ,charge blade,320,0,57,0,water,element,1.32,1.13,3-1-0,3
+tetranadon,charge blade,340,0,36,0,water,impact,1.32,1.13,2-1-0,2
+ceanataur,charge blade,320,0,33,0,water,impact,1.39,1.20,4-0-0,2
+jyuratodus,charge blade,350,-10,29,0,water,element,1.39,1.20,1-1-1,2
+amatsu,charge blade,360,-25,44,0,water,impact,1.39,1.20,0-0-0,3
