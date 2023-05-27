@@ -95,7 +95,7 @@ def create_table():
 def load_table():
     connection_obj = sqlite3.connect('weapon.db')
     cursor_obj = connection_obj.cursor()
-    with open("chargeblades.csv", 'r') as file:
+    with open("weapon.csv", 'r') as file:
         csvreader = csv.reader(file)
         for row1 in csvreader:
             print(row1)
@@ -120,7 +120,7 @@ def load_table():
     connection_obj.close()
     connection_obj_2 = sqlite3.connect('motion.db')
     cursor_obj_2 = connection_obj_2.cursor()
-    with open("chargeblademotions.csv", 'r') as file:
+    with open("motions.csv", 'r') as file:
         csvreader_2 = csv.reader(file)
         for row2 in csvreader_2:
             print(row2)
