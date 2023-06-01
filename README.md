@@ -4,27 +4,38 @@ Using sql and python to calculate damage output in the game Monster Hunter Rise:
 This was just a practice project for me to incorporate sql with python. I like using math to find the best sets in a game I love, so I picked this damage calculator as a project. It may seem simple, but there are thousands of combinations of stats, so using a set of databases to determine which pieces were selected was a natural function of the program. After selecting pieces, its just algebra.  
 
 Usage instructions:
-You need sqlite to use this program. 
+*You need sqlite to use this program. I used Pycharm for coding, so adjust your pathing accordingly.* 
 
 1) download the files
 2) make sure the files are all loaded into python onto the same project and folder, so that the call functions can access them. 
 3) run main
-4) hit option 1 to load up the tables into the program. It will generate databases for sqlite to read from. 
-5) hit option 2 to select your weapon, monster and monster body part. 
-6) hit option 3 to select your skills
-7) hit option 7 to select your number of hits and which moves you are using. It will then calculate the final damage. 
-8) you can input any of the options to change your damage, or just quit. 
+4) hit option 0 to load up the tables into the program. It will generate databases for sqlite to read from. 
+5) hit 1 to select weapons and monsters
+6) hit 2 to select skills (optional)
+7) hit 3 to select motion values/ your attacks. Hitting 3 before option 1 will give you a warning and loop back to the main menu.  
+8) hit 9 to exit
 
-NOTE: When updating tables, you can make direct changes to the tables, then you hit option 0 to reset your databases and option 1 to reload the updated data into them. 
+NOTE: When updating tables, you can make direct changes to the tables, then you hit option 0 to reset your databases and reload the updated data into them. 
 
 version 1
 -does not have any error handling, so you need to have perfect inputs. 
 
+version 1.1
+-weapons, monsters, parts, and skill lists will be remembered until you exit the program or overwrite inputs manually. 
+-has basic error handling. Wrong inputs will force an exit from the current loop back to main menu. 
+-lacks restrictions that would be 'illegal' in game. (ie attack up 7 and attack up 5 in the same skill pool). 
+
+version 1.2 goal
+-finish databases and associated exceptions. 
+-load entire sets using string/split function. 
+
 version 2 goal
--interface is archaic and will aim for formal UI. 
+-store results into a database to perform analysis with. 
 
 version 3 goal
--store results into a database to perform analysis with. 
+-interface is archaic and will aim for formal UI. 
+
+
 
 version 4 goal
 -make this program an app (if possible)
