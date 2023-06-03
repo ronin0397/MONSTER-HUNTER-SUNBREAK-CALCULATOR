@@ -17,10 +17,10 @@ Usage instructions:
 
 NOTE: When updating tables, you can make direct changes to the tables, then you hit option 0 to reset your databases and reload the updated data into them. 
 
-version 1
+version 1 (complete)
 -does not have any error handling, so you need to have perfect inputs. 
 
-version 1.1
+version 1.1 (complete)
 -weapons, monsters, parts, and skill lists will be remembered until you exit the program or overwrite inputs manually. 
 -has basic error handling. Wrong inputs will force an exit from the current loop back to main menu. 
 -lacks restrictions that would be 'illegal' in game. (ie attack up 7 and attack up 5 in the same skill pool). 
@@ -31,11 +31,10 @@ version 1.2 goal
 
 version 2 goal
 -store results into a database to perform analysis with. 
+-connect with tableau to make dashboards of charge blade damage
 
 version 3 goal
 -interface is archaic and will aim for formal UI. 
-
-
 
 version 4 goal
 -make this program an app (if possible)
