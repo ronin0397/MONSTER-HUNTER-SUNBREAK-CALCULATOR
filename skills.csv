@@ -1,34 +1,524 @@
-name,skill type,attack boost mod,element boost mod,attack boost flat,element boost flat,affinity boost,crit boost,element crit boost
-attack 1,augment,0,0,5,0,0,0,0
-attack 2,augment,0,0,10,0,0,0,0
-attack 3,augment,0,0,15,0,0,0,0
-attack 4,augment,0,0,20,0,0,0,0
-attack slot 1,augment,0,0,5,0,0,0,0
-attack slot 2,augment,0,0,15,0,0,0,0
-attack slot 3,augment,0,0,25,0,0,0,0
-attack up 1,skill,1,1,3,0,0,1.25,1
-attack up 2,skill,1,1,6,0,0,1.25,1
-attack up 3,skill,1,1,9,0,0,1.25,1
-attack up 4,skill,1.05,1,7,0,0,1.25,1
-attack up 5,skill,1.06,1,8,0,0,1.25,1
-attack up 6,skill,1.08,1,9,0,0,1.25,1
-attack up 7,skill,1.1,1,10,0,0,1.25,1
-chain crit 1 base,skill,1,1,5,5,0,1.25,1
-chain crit 1 boost,skill,1,1,10,8,0,1.25,1
-chain crit 2 base,skill,1,1,5,5,0,1.25,1
-chain crit 2 boost,skill,1,1,12,12,0,1.25,1
-chain crit 3 base,skill,1,1,5,5,0,1.25,1
-chain crit 3 boost,skill,1,1,15,15,0,1.25,1
-crit boost 1,skill,1,1,0,0,0,1.3,1
-crit boost 2,skill,1,1,0,0,0,1.35,1
-crit boost 3,skill,1,1,0,0,0,1.4,1
-element 1,augment,0,0,0,3,0,0,0
-element 2,augment,0,0,0,6,0,0,0
-element 3,augment,0,0,0,9,0,0,0
-element 4,augment,0,0,0,12,0,0,0
-element 5,augment,0,0,0,15,0,0,0
-element 6,augment,0,0,0,20,0,0,0
-element 7,augment,0,0,0,27,0,0,0
-element 8,augment,0,0,0,35,0,0,0
-element slot 1,augment,0,0,0,6,0,0,0
-element slot 2,augment,0,0,0,18,0,0,0
+name,skill type,attack boost mod,attack boost flat,crit boost,element boost mod,element boost flat,element type,element crit boost,affinity boost,status mod,status flat,status type,handicraft units,defense boost mod,defense boost flat,elemental resistance,elemental resistance type
+affinity 1,augment,1,0,0.25,1,0,none,0,5,1,0,none,0,1,0,0,none
+affinity 2,augment,1,0,0.25,1,0,none,0,10,1,0,none,0,1,0,0,none
+affinity 3,augment,1,0,0.25,1,0,none,0,15,1,0,none,0,1,0,0,none
+attack 1,augment,1,5,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack 2,augment,1,10,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack 3,augment,1,15,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack 4,augment,1,20,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack slot 1,augment,1,5,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack slot 2,augment,1,15,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack slot 3,augment,1,25,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+element 1,augment,1,0,0.25,1,3,all,0,0,1,0,none,0,1,0,0,none
+element 2,augment,1,0,0.25,1,6,all,0,0,1,0,none,0,1,0,0,none
+element 3,augment,1,0,0.25,1,9,all,0,0,1,0,none,0,1,0,0,none
+element 4,augment,1,0,0.25,1,12,all,0,0,1,0,none,0,1,0,0,none
+element 5,augment,1,0,0.25,1,15,all,0,0,1,0,none,0,1,0,0,none
+element 6,augment,1,0,0.25,1,20,all,0,0,1,0,none,0,1,0,0,none
+element 7,augment,1,0,0.25,1,27,all,0,0,1,0,none,0,1,0,0,none
+element 8,augment,1,0,0.25,1,35,all,0,0,1,0,none,0,1,0,0,none
+element slot 1,augment,1,0,0.25,1,6,all,0,0,1,0,none,0,1,0,0,none
+element slot 2,augment,1,0,0.25,1,18,all,0,0,1,0,none,0,1,0,0,none
+handicraft 1,augment,1,0,0.25,1,0,none,0,0,1,0,none,10,1,0,0,none
+handicraft 2,augment,1,0,0.25,1,0,none,0,0,1,0,none,20,1,0,0,none
+handicraft 3,augment,1,0,0.25,1,0,none,0,0,1,0,none,30,1,0,0,none
+handicraft 4,augment,1,0,0.25,1,0,none,0,0,1,0,none,50,1,0,0,none
+handicraft slot 1,augment,1,0,0.25,1,0,none,0,0,1,0,none,10,1,0,0,none
+handicraft slot 2,augment,1,0,0.25,1,0,none,0,0,1,0,none,20,1,0,0,none
+rampage slot upgrade 1,augment,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+rampage slot upgrade 2,augment,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+shelling level boost 1,augment,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+shelling level boost 2,augment,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+status effect boost 1,augment,1,0,0.25,1,0,none,0,0,1,3,all,0,1,0,0,none
+status effect boost 2,augment,1,0,0.25,1,0,none,0,0,1,8,all,0,1,0,0,none
+status effect boost 3,augment,1,0,0.25,1,0,none,0,0,1,12,all,0,1,0,0,none
+status effect boost 4,augment,1,0,0.25,1,0,none,0,0,1,16,all,0,1,0,0,none
+adrenaline rush 1,skill,1,10,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+adrenaline rush 2,skill,1,15,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+adrenaline rush 3,skill,1,30,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+affinity sliding 1,skill,1,0,0.25,1,0,none,0,30,1,0,none,0,1,0,0,none
+agitator 1,skill,1,4,0.25,1,0,none,0,3,1,0,none,0,1,0,0,none
+agitator 2,skill,1,8,0.25,1,0,none,0,5,1,0,none,0,1,0,0,none
+agitator 3,skill,1,12,0.25,1,0,none,0,7,1,0,none,0,1,0,0,none
+agitator 4,skill,1,15,0.25,1,0,none,0,10,1,0,none,0,1,0,0,none
+agitator 5,skill,1,20,0.25,1,0,none,0,15,1,0,none,0,1,0,0,none
+ammo up 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+ammo up 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+ammo up 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+artillery 1,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+artillery 2,skill,1.2,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+artillery 3,skill,1.3,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack up 1,skill,1,3,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack up 2,skill,1,6,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack up 3,skill,1,9,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack up 4,skill,1.05,7,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack up 5,skill,1.06,8,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack up 6,skill,1.08,9,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+attack up 7,skill,1.1,10,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+ballistics 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+ballistics 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+ballistics 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+berserk 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+berserk 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bladescale hone 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bladescale hone 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bladescale hone 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+blast attack 1,skill,1,0,0.25,1,0,none,0,0,1.05,1,blast,0,1,0,0,none
+blast attack 2,skill,1,0,0.25,1,0,none,0,0,1.1,2,blast,0,1,0,0,none
+blast attack 3,skill,1,0,0.25,1,0,none,0,0,1.2,5,blast,0,1,0,0,none
+blast resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+blast resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+blast resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+blight resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+blight resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+blight resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+blood awakening base 1,skill,1,5,0.25,1,5,all,0,0,1,0,none,0,1,0,0,none
+blood awakening base 2,skill,1,5,0.25,1,5,all,0,0,1,0,none,0,1,0,0,none
+blood awakening base 3,skill,1,15,0.25,1,15,all,0,0,1,0,none,0,1,0,0,none
+blood awakening boost 1,skill,1,10,0.25,1,10,all,0,0,1,0,none,0,1,0,0,none
+blood awakening boost 2,skill,1,20,0.25,1,20,all,0,0,1,0,none,0,1,0,0,none
+blood awakening boost 3,skill,1,40,0.25,1,30,all,0,0,1,0,none,0,1,0,0,none
+blood rite 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+blood rite 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+blood rite 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bloodlust (cured) 1,skill,1,0,0.25,1,0,none,0,20,1,0,none,0,1,0,0,none
+bloodlust (cured) 2,skill,1,0,0.25,1,0,none,0,25,1,0,none,0,1,0,0,none
+bloodlust (cured) 3,skill,1,0,0.25,1,0,none,0,25,1,0,none,0,1,0,0,none
+bloodlust 1,skill,1,10,0.25,1,5,all,0,0,1,5,all,0,1,0,0,none
+bloodlust 2,skill,1,15,0.25,1,7,all,0,0,1,7,all,0,1,0,0,none
+bloodlust 3,skill,1,20,0.25,1,10,all,0,0,1,10,all,0,1,0,0,none
+bludgeoner 1 (yellow),skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bludgeoner 2 (yellow),skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bludgeoner 3 (green),skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bombardier 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bombardier 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bombardier 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+botanist 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+botanist 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+botanist 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bow charge plus 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bubbly dance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bubbly dance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+bubbly dance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+buildup boost 1,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+buildup boost 2,skill,1.15,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+buildup boost 3,skill,1.2,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+burst 1 boost,skill,1,10,0.25,1,8,all,0,0,1,0,none,0,1,0,0,none
+burst 2 boost,skill,1,12,0.25,1,12,all,0,0,1,0,none,0,1,0,0,none
+burst 3 boost,skill,1,15,0.25,1,15,all,0,0,1,0,none,0,1,0,0,none
+burst base,skill,1,5,0.25,1,5,all,0,0,1,0,none,0,1,0,0,none
+capture master 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+carving master 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+carving pro 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+chameleos blessing 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+chameleos blessing 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+chameleos blessing 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+chameleos blessing 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+charge master 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+charge master 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+charge master 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+coalescence 1,skill,1,12,0.25,1,2,all,0,1.05,1,0,none,0,1,0,0,none
+coalescence 2,skill,1,15,0.25,1,3,all,0,1.1,1,0,none,0,1,0,0,none
+coalescence 3,skill,1,18,0.25,1,4,all,0,1.15,1,0,none,0,1,0,0,none
+constitution 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+constitution 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+constitution 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+constitution 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+constitution 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+counterstrike 1,skill,1,10,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+counterstrike 2,skill,1,15,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+counterstrike 3,skill,1,25,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+crit boost 1,skill,1,0,0.3,1,0,none,0,0,1,0,none,0,1,0,0,none
+crit boost 2,skill,1,0,0.35,1,0,none,0,0,1,0,none,0,1,0,0,none
+crit boost 3,skill,1,0,0.4,1,0,none,0,0,1,0,none,0,1,0,0,none
+critical draw 1,skill,1,0,0.25,1,0,none,0,15,1,0,none,0,1,0,0,none
+critical draw 2,skill,1,0,0.25,1,0,none,0,30,1,0,none,0,1,0,0,none
+critical draw 3,skill,1,0,0.25,1,0,none,0,60,1,0,none,0,1,0,0,none
+critical element 1,skill,1,0,0.25,1,0,none,0.05,0,1,0,none,0,1,0,0,none
+critical element 2,skill,1,0,0.25,1,0,none,0.1,0,1,0,none,0,1,0,0,none
+critical element 3,skill,1,0,0.25,1,0,none,0.15,0,1,0,none,0,1,0,0,none
+critical eye 1,skill,1,0,0.25,1,0,none,0,5,1,0,none,0,1,0,0,none
+critical eye 2,skill,1,0,0.25,1,0,none,0,10,1,0,none,0,1,0,0,none
+critical eye 3,skill,1,0,0.25,1,0,none,0,15,1,0,none,0,1,0,0,none
+critical eye 4,skill,1,0,0.25,1,0,none,0,20,1,0,none,0,1,0,0,none
+critical eye 5,skill,1,0,0.25,1,0,none,0,25,1,0,none,0,1,0,0,none
+critical eye 6,skill,1,0,0.25,1,0,none,0,30,1,0,none,0,1,0,0,none
+critical eye 7,skill,1,0,0.25,1,0,none,0,40,1,0,none,0,1,0,0,none
+defense boost 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,5,0,none
+defense boost 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,10,0,none
+defense boost 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1.05,10,0,none
+defense boost 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1.05,20,3,all
+defense boost 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1.08,20,3,all
+defense boost 6,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1.08,35,5,all
+defense boost 7,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1.1,35,5,all
+defiance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+defiance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,5,0,none
+defiance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,10,0,none
+defiance 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,20,0,none
+defiance 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,30,0,none
+dereliction 1 (blue) qurio 1,skill,1,15,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dereliction 1 (blue) qurio 2,skill,1,20,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dereliction 1 (blue) qurio 3,skill,1,25,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dereliction 1 (red) qurio 1,skill,1,0,0.25,1,5,all,0,0,1.05,0,none,0,1,0,0,none
+dereliction 1 (red) qurio 2,skill,1,0,0.25,1,8,all,0,0,1.1,0,none,0,1,0,0,none
+dereliction 1 (red) qurio 3,skill,1,0,0.25,1,23,all,0,0,1.15,0,none,0,1,0,0,none
+dereliction 2 (blue) qurio 1,skill,1,20,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dereliction 2 (blue) qurio 2,skill,1,25,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dereliction 2 (blue) qurio 3,skill,1,30,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dereliction 2 (red) qurio 1,skill,1,0,0.25,1,7,all,0,0,1.1,0,none,0,1,0,0,none
+dereliction 2 (red) qurio 2,skill,1,0,0.25,1,12,all,0,0,1.15,0,none,0,1,0,0,none
+dereliction 2 (red) qurio 3,skill,1,0,0.25,1,15,all,0,0,1.2,0,none,0,1,0,0,none
+dereliction 3 (blue) qurio 1,skill,1,25,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dereliction 3 (blue) qurio 2,skill,1,30,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dereliction 3 (blue) qurio 3,skill,1,35,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dereliction 3 (red) qurio 1,skill,1,0,0.25,1,10,all,0,0,1.15,0,none,0,1,0,0,none
+dereliction 3 (red) qurio 2,skill,1,0,0.25,1,15,all,0,0,1.2,0,none,0,1,0,0,none
+dereliction 3 (red) qurio 3,skill,1,0,0.25,1,20,all,0,0,1.25,0,none,0,1,0,0,none
+diversion 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+divine blessing 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+divine blessing 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+divine blessing 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+dragon attack 1,skill,1,0,0.25,1,2,dragon,0,0,1,0,none,0,1,0,0,none
+dragon attack 2,skill,1,0,0.25,1,3,dragon,0,0,1,0,none,0,1,0,0,none
+dragon attack 3,skill,1,0,0.25,1.05,4,dragon,0,0,1,0,none,0,1,0,0,none
+dragon attack 4,skill,1,0,0.25,1.1,4,dragon,0,0,1,0,none,0,1,0,0,none
+dragon attack 5,skill,1,0,0.25,1.2,4,dragon,0,0,1,0,none,0,1,0,6,dragon
+dragon conversion 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,3,all
+dragon conversion 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,5,all
+dragon conversion 3,skill,1,0,0.25,1,12.5,all,0,0,1,0,none,0,1,0,10,all
+dragon resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,6,dragon
+dragon resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,12,dragon
+dragon resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,10,20,dragon
+dragonheart 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,30,all
+dragonheart 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,50,all
+dragonheart 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,50,all 
+dragonheart 4,skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,0,50,all
+dragonheart 5,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,50,all
+earplugs 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+earplugs 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+earplugs 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+earplugs 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+earplugs 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+element exploit 1,skill,1,0,0.25,1.1,0,all,0,0,1,0,none,0,1,0,0,none
+element exploit 2,skill,1,0,0.25,1.125,0,all,0,0,1,0,none,0,1,0,0,none
+element exploit 3,skill,1,0,0.25,1.15,0,all,0,0,1,0,none,0,1,0,0,none
+embolden 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,10,0,none
+embolden 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,20,0,none
+embolden 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,40,0,none
+evade extender 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+evade extender 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+evade extender 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+evade window 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+evade window 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+evade window 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+evade window 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+evade window 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+fire attack 1,skill,1,0,0.25,1,2,fire,0,0,1,0,none,0,1,0,0,none
+fire attack 2,skill,1,0,0.25,1,3,fire,0,0,1,0,none,0,1,0,0,none
+fire attack 3,skill,1,0,0.25,1.05,4,fire,0,0,1,0,none,0,1,0,0,none
+fire attack 4,skill,1,0,0.25,1.1,4,fire,0,0,1,0,none,0,1,0,0,none
+fire attack 5,skill,1,0,0.25,1.2,4,fire,0,0,1,0,none,0,1,0,0,none
+fire resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,6,fire
+fire resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,12,fire
+fire resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,10,20,fire
+flinch free 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+flinch free 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+flinch free 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+focus 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+focus 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+focus 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+foray 1,skill,1,10,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+foray 2,skill,1,10,0.25,1,0,none,0,10,1,0,none,0,1,0,0,none
+foray 3,skill,1,15,0.25,1,0,none,0,15,1,0,none,0,1,0,0,none
+fortify 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+free meal 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+free meal 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+free meal 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+frenzied bloodlust 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+frenzied bloodlust 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+frenzied bloodlust 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+frostcraft 1,skill,1.05,0,0.25,1.05,0,all,0,0,1,0,none,0,1,0,0,none
+frostcraft 2 bar 1,skill,1,0,0.25,1,0,all,0,0,1,0,none,0,1,0,0,none
+frostcraft 2 bar 2,skill,1.2,0,0.25,1.2,0,all,0,0,1,0,none,0,1,0,0,none
+frostcraft 3 bar 1,skill,1,0,0.25,1,0,all,0,0,1,0,none,0,1,0,0,none
+frostcraft 3 bar 2,skill,1.05,0,0.25,1.05,0,all,0,0,1,0,none,0,1,0,0,none
+frostcraft 3 bar 3,skill,1.2,0,0.25,1.2,0,all,0,0,1,0,none,0,1,0,0,none
+frostcraft 3 bar 4,skill,1.3,0,0.25,1.3,0,all,0,0,1,0,none,0,1,0,0,none
+furious blue scroll 1 ,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+furious blue scroll 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+furious blue scroll 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+furious red scroll 1 ,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,10,5,all
+furious red scroll 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,20,10,all
+furious red scroll 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,30,20,all
+geologist 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+geologist 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+geologist 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+good luck 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+good luck 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+good luck 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+grinder 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+grinder 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+grinder 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guard 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guard 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guard 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guard 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guard 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guard up 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guard up 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guard up 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guts 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guts 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+guts 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+handicraft 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,10,1,0,0,none
+handicraft 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,20,1,0,0,none
+handicraft 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,30,1,0,0,none
+handicraft 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,40,1,0,0,none
+handicraft 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,50,1,0,0,none
+heaven sent 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+heaven sent 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+heaven sent 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+hellfire cloak 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+hellfire cloak 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+hellfire cloak 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+hellfire cloak 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,50,0,none
+heroics 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,50,0,none
+heroics 2,skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,100,0,none
+heroics 3,skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,100,0,none
+heroics 4,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+heroics 5,skill,1.3,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+horn maestro 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+hunger resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+hunger resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+hunger resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+ice attack 1,skill,1,0,0.25,1,2,ice,0,0,1,0,none,0,1,0,0,none
+ice attack 2,skill,1,0,0.25,1,3,ice,0,0,1,0,none,0,1,0,0,none
+ice attack 3,skill,1,0,0.25,1.05,4,ice,0,0,1,0,none,0,1,0,0,none
+ice attack 4,skill,1,0,0.25,1.1,4,ice,0,0,1,0,none,0,1,0,0,none
+ice attack 5,skill,1,0,0.25,1.2,4,ice,0,0,1,0,none,0,1,0,0,none
+ice resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,6,ice
+ice resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,12,ice
+ice resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,10,20,ice
+intrepid heart 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+intrepid heart 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+item prolonger 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+item prolonger 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+item prolonger 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+jump master 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+kushala blessing 1,skill,1,0,0.25,1.05,0,"water, ice",0,0,1,0,none,0,1,0,0,none
+kushala blessing 2,skill,1,0,0.25,1.1,0,"water, ice",0,0,1,0,none,0,1,0,0,none
+kushala blessing 3,skill,1,0,0.25,1.1,0,"water, ice",0,0,1,0,none,0,1,0,0,none
+kushala blessing 4,skill,1,0,0.25,1.1,0,"water, ice",0,0,1,0,none,0,1,0,0,none
+latent power 1,skill,1,0,0.25,1,0,none,0,10,1,0,none,0,1,0,0,none
+latent power 2,skill,1,0,0.25,1,0,none,0,20,1,0,none,0,1,0,0,none
+latent power 3,skill,1,0,0.25,1,0,none,0,30,1,0,none,0,1,0,0,none
+latent power 4,skill,1,0,0.25,1,0,none,0,40,1,0,none,0,1,0,0,none
+latent power 5,skill,1,0,0.25,1,0,none,0,500,1,0,none,0,1,0,0,none
+leap of faith 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+load shells 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+load shells 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+mail of hellfire 1 (blue),skill,1,0,0.25,1.05,0,all,0,0,1,0,none,0,1,0,-10,all
+mail of hellfire 1 (red),skill,1,15,0.25,1,0,none,0,0,1,0,none,0,1,-50,0,none
+mail of hellfire 2 (blue),skill,1,0,0.25,1.1,0,all,0,0,1,0,none,0,1,0,-25,all
+mail of hellfire 2 (red),skill,1,25,0.25,1,0,none,0,0,1,0,none,0,1,-75,0,none
+mail of hellfire 3 (blue),skill,1,0,0.25,1.2,0,all,0,0,1,0,none,0,1,0,-50,all
+mail of hellfire 3 (red),skill,1,35,0.25,1,0,none,0,0,1,0,none,0,1,-100,0,none
+marathon runner 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+marathon runner 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+marathon runner 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+master mounter 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+master's touch 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+master's touch 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+master's touch 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+maximum might 1,skill,1,0,0.25,1,0,none,0,10,1,0,none,0,1,0,0,none
+maximum might 2,skill,1,0,0.25,1,0,none,0,20,1,0,none,0,1,0,0,none
+maximum might 3,skill,1,0,0.25,1,0,none,0,30,1,0,none,0,1,0,0,none
+mind's eye 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+mind's eye 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+mind's eye 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+muck resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+muck resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+mushroomancer 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+mushroomancer 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+mushroomancer 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+normal/rapid up 1,skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+normal/rapid up 2,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+normal/rapid up 3,skill,1.2,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+offensive guard 1,skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+offensive guard 2,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+offensive guard 3,skill,1.15,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+paralysis attack 1,skill,1,0,0.25,1,0,none,0,0,1.05,1,paralysis,0,1,0,0,none
+paralysis attack 2,skill,1,0,0.25,1,0,none,0,0,1.1,2,paralysis,0,1,0,0,none
+paralysis attack 3,skill,1,0,0.25,1,0,none,0,0,1.2,5,paralysis,0,1,0,0,none
+paralysis resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+paralysis resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+paralysis resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+partbreaker 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+partbreaker 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+partbreaker 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+peak performance 1,skill,1,5,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+peak performance 2,skill,1,10,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+peak performance 3,skill,1,20,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+pierce up 1,skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+pierce up 2,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+pierce up 3,skill,1.2,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+poison attack 1,skill,1,0,0.25,1,0,none,0,0,1.05,1,poison,0,1,0,0,none
+poison attack 2,skill,1,0,0.25,1,0,none,0,0,1.1,2,poison,0,1,0,0,none
+poison attack 3,skill,1,0,0.25,1,0,none,0,0,1.2,5,poison,0,1,0,0,none
+poison resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+poison resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+poison resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+powder mantle 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+powder mantle 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+powder mantle 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+power prolonger 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+power prolonger 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+power prolonger 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+protective polish 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+protective polish 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+protective polish 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+punishing draw 1,skill,1,3,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+punishing draw 2,skill,1,5,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+punishing draw 3,skill,1,7,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+quick breath 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+quick sheathe 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+quick sheathe 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+quick sheathe 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+rapid fire up 1,skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+rapid fire up 2,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+rapid fire up 3,skill,1.2,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+rapid morph 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+rapid morph 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+rapid morph 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+razor sharp 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+razor sharp 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+razor sharp 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+recoil down 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+recoil down 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+recoil down 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+recovery speed 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+recovery speed 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+recovery speed 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+recovery up 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+recovery up 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+recovery up 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+redirection 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+redirection 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+reload speed 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+reload speed 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+reload speed 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+resentment 1,skill,1,5,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+resentment 2,skill,1,10,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+resentment 3,skill,1,15,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+resentment 4,skill,1,20,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+resentment 5,skill,1,25,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+resuscitate 1,skill,1,5,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+resuscitate 2,skill,1,10,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+resuscitate 3,skill,1,20,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+shock absorber 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+sleep attack 1,skill,1,0,0.25,1,0,none,0,0,1.05,1,sleep,0,1,0,0,none
+sleep attack 2,skill,1,0,0.25,1,0,none,0,0,1.1,2,sleep,0,1,0,0,none
+sleep attack 3,skill,1,0,0.25,1,0,none,0,0,1.2,5,sleep,0,1,0,0,none
+sleep resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+sleep resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+sleep resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+slugger 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+slugger 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+slugger 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+sneak attack 1,skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+sneak attack 2,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+sneak attack 3,skill,1.2,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+spare shot 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+spare shot 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+spare shot 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+special ammo boost 1,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+special ammo boost 2,skill,1.2,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+speed eating 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+speed eating 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+speed eating 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+speed sharpening 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+speed sharpening 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+speed sharpening 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+spread up 1,skill,1.05,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+spread up 2,skill,1.1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+spread up 3,skill,1.2,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+stamina surge 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+stamina surge 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+stamina surge 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+stamina thief 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+stamina thief 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+stamina thief 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+status trigger 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+status trigger 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+status trigger 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+steadiness 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+steadiness 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+steadiness 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+stormsoul 1,skill,1,0,0.25,1.05,0,"thunder, dragon",0,0,1,0,none,0,1,0,0,none
+stormsoul 2,skill,1,0,0.25,1.1,0,"thunder, dragon",0,0,1,0,none,0,1,0,0,none
+stormsoul 3,skill,1,0,0.25,1.15,0,"thunder, dragon",0,0,1,0,none,0,1,0,0,none
+stormsoul 4,skill,1,0,0.25,1.15,0,"thunder, dragon",0,0,1,0,none,0,1,0,0,none
+stormsoul 5,skill,1,0,0.25,1.15,0,"thunder, dragon",0,0,1,0,none,0,1,0,0,none
+strife (60% or more red) 1,skill,1,0,0.25,1.1,0,all,0,0,1,0,none,0,1,0,0,none
+strife (60% or more red) 2,skill,1,0,0.25,1.15,0,all,0,0,1,0,none,0,1,0,0,none
+strife (60% or more red) 3,skill,1,0,0.25,1.2,0,all,0,0,1,0,none,0,1,0,0,none
+strife (less than 60% red) 1,skill,1,0,0.25,1.05,0,all,0,0,1,0,none,0,1,0,0,none
+strife (less than 60% red) 2,skill,1,0,0.25,1.1,0,all,0,0,1,0,none,0,1,0,0,none
+strife (less than 60% red) 3,skill,1,0,0.25,1.15,0,all,0,0,1,0,none,0,1,0,0,none
+stun resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+stun resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+stun resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+teostra blessing 1,skill,1,0,0.25,1.05,0,fire,0,0,1,0,none,0,1,0,0,none
+teostra blessing 2,skill,1,0,0.25,1.1,0,fire,0,0,1,0,none,0,1,0,0,none
+teostra blessing 3,skill,1,0,0.25,1.1,0,fire,0,0,1,0,none,0,1,0,0,none
+teostra blessing 4,skill,1,0,0.25,1.1,0,fire,0,0,1,0,none,0,1,0,0,none
+thunder alignment 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+thunder alignment 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+thunder alignment 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+thunder alignment 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+thunder alignment 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+thunder attack 1,skill,1,0,0.25,1,2,thunder,0,0,1,0,none,0,1,0,0,none
+thunder attack 2,skill,1,0,0.25,1,3,thunder,0,0,1,0,none,0,1,0,0,none
+thunder attack 3,skill,1,0,0.25,1.05,4,thunder,0,0,1,0,none,0,1,0,0,none
+thunder attack 4,skill,1,0,0.25,1.1,4,thunder,0,0,1,0,none,0,1,0,0,none
+thunder attack 5,skill,1,0,0.25,1.2,4,thunder,0,0,1,0,none,0,1,0,0,none
+thunder resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,6,thunder
+thunder resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,12,thunder
+thunder resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,10,20,thunder
+tremor resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+tremor resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+tremor resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+tune up 1 (long barrel),skill,1.075,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+tune up 2 (long barrel),skill,1.15,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wall runner 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wall runner 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+water attack 1,skill,1,0,0.25,1,2,water,0,0,1,0,none,0,1,0,0,none
+water attack 2,skill,1,0,0.25,1,3,water,0,0,1,0,none,0,1,0,0,none
+water attack 3,skill,1,0,0.25,1.05,4,water,0,0,1,0,none,0,1,0,0,none
+water attack 4,skill,1,0,0.25,1.1,4,water,0,0,1,0,none,0,1,0,0,none
+water attack 5,skill,1,0,0.25,1.2,4,water,0,0,1,0,none,0,1,0,0,none
+water resistance 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,6,water
+water resistance 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,12,water
+water resistance 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,10,20,water
+weakness exploit 1,skill,1,0,0.25,1,0,none,0,15,1,0,none,0,1,0,0,none
+weakness exploit 2,skill,1,0,0.25,1,0,none,0,30,1,0,none,0,1,0,0,none
+weakness exploit 3,skill,1,0,0.25,1,0,none,0,50,1,0,none,0,1,0,0,none
+wide-range 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wide-range 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wide-range 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wide-range 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wide-range 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wind alignment 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wind alignment 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wind alignment 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wind alignment 4,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wind alignment 5,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wind mantle 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wind mantle 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wind mantle 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+windproof 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+windproof 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+windproof 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wirebug whisperer 1,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wirebug whisperer 2,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
+wirebug whisperer 3,skill,1,0,0.25,1,0,none,0,0,1,0,none,0,1,0,0,none
