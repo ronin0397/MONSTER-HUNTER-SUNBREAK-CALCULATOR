@@ -34,12 +34,21 @@ def create_table():
         name CHAR(25) NOT NULL,
         type CHAR(25) NOT NULL,
         attack_boost_mod INT,
-        element_boost_mod INT,
         attack_boost_flat INT,
-        element_boost_flat INT,
-        affinity_boost INT,
         crit_boost INT,
-        element_crit_boost INT 
+        element_boost_mod INT,
+        element_boost_flat INT,
+        element_type CHAR(25),
+        element_crit_boost INT, 
+        affinity_boost INT,
+        status_mod INT,
+        status_flat INT,
+        status_type CHAR(25),
+        handicraft_units INT,
+        defense_boost_mod INT,
+        defense_boost_flat INT,
+        elemental_resistance INT,
+        elemental_resistance_type CHAR(25) 
         );
     """
     cursor_obj_3.execute(skills_table)
@@ -118,6 +127,7 @@ def load_table():
                                 element_type, sub_type, sharpness, esharpness, slots, rampage_slots))
     connection_obj.commit()
     connection_obj.close()
+
     connection_obj_2 = sqlite3.connect('motion.db')
     cursor_obj_2 = connection_obj_2.cursor()
     with open("motions.csv", 'r') as file:
@@ -174,22 +184,33 @@ def load_table():
         csvreader_4 = csv.reader(file)
         for row4 in csvreader_4:
             print(row4)
-            name = row4[0]
+            skill_name = row4[0]
             skill_type = row4[1]
             attack_boost_mod = row4[2]
-            element_boost_mod = row4[3]
-            attack_boost_flat = row4[4]
-            element_boost_flat = row4[5]
-            affinity_boost = row4[6]
-            crit_boost = row4[7]
+            attack_boost_flat = row4[3]
+            crit_boost = row4[4]
+            element_boost_mod = row4[5]
+            element_boost_flat = row4[6]
+            element_type = row4[7]
             element_crit_boost = row4[8]
-            cursor_obj_4.execute("INSERT INTO skills (""name, type, attack_boost_mod, element_boost_mod, "
-                                 "attack_boost_flat, element_boost_flat, affinity_boost,"
-                                 "crit_boost, element_crit_boost)"
-                                 "VALUES (?,?,?,?,?,?,?,?,?)",
-                                 (name, skill_type, attack_boost_mod, element_boost_mod,
-                                  attack_boost_flat, element_boost_flat, affinity_boost,
-                                  crit_boost, element_crit_boost))
+            affinity_boost = row4[9]
+            status_mod = row4[10]
+            status_flat = row4[11]
+            status_type = row4[12]
+            handicraft_units = row4[13]
+            defense_boost_mod = row4[14]
+            defense_boost_flat = row4[15]
+            elemental_resistance = row4[16]
+            elemental_resistance_type = row4[17]
+            cursor_obj_4.execute("INSERT INTO skills (""name, type, attack_boost_mod, attack_boost_flat, crit_boost,"
+                                 "element_boost_mod, element_boost_flat, element_type, element_crit_boost, affinity_boost,"
+                                 "status_mod, status_flat, status_type, handicraft_units, defense_boost_mod, "
+                                 "defense_boost_flat, elemental_resistance, elemental_resistance_type)"
+                                 "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                                 (skill_name, skill_type, attack_boost_mod, attack_boost_flat, crit_boost, element_boost_mod,
+                                  element_boost_flat, element_type, element_crit_boost, affinity_boost, status_mod, status_flat,
+                                  status_type, handicraft_units, defense_boost_mod, defense_boost_flat, elemental_resistance,
+                                  elemental_resistance_type))
     connection_obj_4.commit()
     connection_obj_4.close()
     return 0
@@ -217,10 +238,10 @@ def call(database, table, name, second_name):
 
 
 def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
-    crit_mod = 1.25
-    ecrit_mod = 1
-
-    name, type, attack, affinity, element, status, element_type, \
+    crit_mod = 0.25
+    ecrit_mod = 0
+    skill_values = []
+    name, weapon_type, attack, affinity, element, status, element_type, \
     subtype, sharpness, esharpness, slots, rampage = \
         call('weapon.db', 'weapon', weapon_name, 'none')
 
@@ -252,20 +273,39 @@ def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
         element_resist = dragon
     else:
         element_resist = 1
-    if str(len(skill_names)) != '0':
+    if skill_names != 'none':
         for i in range(len(skill_names)):
-            skill_name, skill_type, attack_boost_mod, element_boost_mod, attack_boost_flat, \
-            element_boost_flat, affinity_boost, crit_boost, ecrit_boost = \
+            skill_values = \
                 call('skills.db', 'skills', skill_names[i], 'none')
+            skill_name = skill_values[0]
+            skill_type = skill_values[1]
+            attack_boost_mod = skill_values[2]
+            attack_boost_flat = skill_values[3]
+            crit_boost = skill_values[4]
+            element_boost_mod = skill_values[5]
+            element_boost_flat = skill_values[6]
+            element_type = skill_values[7]
+            element_crit_boost = skill_values[8]
+            affinity_boost = skill_values[9]
+            status_mod = skill_values[10]
+            status_flat = skill_values[11]
+            status_type = skill_values[12]
+            handicraft_units = skill_values[13]
+            defense_boost_mod = skill_values[14]
+            defense_boost_flat = skill_values[15]
+            elemental_resistance = skill_values[16]
+            elemental_resistance_type = skill_values[17]
+
             attack = (attack * attack_boost_mod) + attack_boost_flat
-            element = element * element_boost_mod + element_boost_flat
+            element = (element * element_boost_mod) + element_boost_flat
             affinity = affinity + affinity_boost
             crit_mod = crit_boost
-            ecrit_mod = ecrit_boost
+            ecrit_mod = element_crit_boost
 
-    damage = int(attack) * (1 + int(crit_mod) * int(affinity) / 100) * int(raw) / 100 * int(sharpness) * int(damage_resist) / 100 + \
-             int(element) * (1 + int(ecrit_mod) * int(affinity) / 100) * int(element_mod) * int(esharpness) * int(element_resist) / 100
-    print("Motion Damage is : ", int(damage))
+    raw_damage = float(attack) * (1 + float(crit_mod) * float(affinity / 100)) * float(raw / 100) * float(sharpness) * float(damage_resist / 100)
+    element_damage = float(element) * (1 + (float(ecrit_mod) * float(affinity/ 100))) * float(element_mod) * float(esharpness) * float(element_resist / 100)
+    damage = raw_damage + element_damage
+    print("Motion Damage is: ", int(damage))
     return damage
 
 # main
@@ -273,6 +313,8 @@ main = 0
 values_flag = 0
 skills_flag = 0
 loops = 0
+save_list = []
+damage = 0
 while main == 0:
     try:
         operation = int(input('\nReset Tables = 0\n'    
@@ -330,11 +372,11 @@ while main == 0:
             if len(motion_call) == 0:
                 print(motion + ' is an invalid input. Try again.')
                 continue
-            if skills_flag > 0:
+            elif skills_flag == 1:
                 damage += damage_calc(weapon, motion, monster, part, saved_list)
             else:
-                damage += damage_calc(weapon, motion, monster, part, '0')
-        print(int(damage))
+                damage += damage_calc(weapon, motion, monster, part, 'none')
+        print('Total Damage is: ', int(damage))
     elif operation == 9:
         main = 1
     else:
