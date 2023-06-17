@@ -215,7 +215,6 @@ def load_table():
     connection_obj_4.close()
     return 0
 
-
 def call(database, table, name, second_name):
     array = []
     connection_obj = sqlite3.connect(database)
@@ -236,6 +235,27 @@ def call(database, table, name, second_name):
     connection_obj.close()
     return array
 
+def skill_check(skills):
+    legal_list = []
+    skills = sorted(skills)
+    legal_list.append(skills[0])
+    for i in range(len(skills)-1):
+        check_1 = skills[i].split('+')
+        check_2 = skills[i+1].split('+')
+        check_3 = check_1[i].split('-')
+        check_4 = check_2[i].split('-')
+        if bool(check_1[0] == check_2[0]) & bool(check_1[1] < check_2[1]):
+            legal_list.pop(i-1)
+            legal_list.append(skills[i+1])
+        elif bool(check_1[0] == check_2[0]) & bool(check_1[1] > check_2[1]):
+            legal_list.pop(i - 1)
+            legal_list.append(skills[i])
+        elif bool(len(check_3) > 1) & bool(len(check_4) > 1) & bool(check_3[1] != check_4[1]):
+            legal_list.pop(i-1)
+            legal_list.append(skills[i+1])
+        elif bool(check_1[0] != check_2[0]):
+            legal_list.append(skills[i+1])
+    return legal_list
 
 def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
     crit_mod = 0.25
@@ -275,32 +295,21 @@ def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
         element_resist = 1
     if skill_names != 'none':
         for i in range(len(skill_names)):
-            skill_values = \
+            skill_name, skill_type, attack_boost_mod, attack_boost_flat, crit_boost, element_boost_mod,\
+            element_boost_flat, element_type, element_crit_boost, affinity_boost, status_mod, status_flat,\
+            status_type, handicraft_units, defense_boost_mod, defense_boost_flat, elemental_resistance,\
+            elemental_resistance_type = \
                 call('skills.db', 'skills', skill_names[i], 'none')
-            skill_name = skill_values[0]
-            skill_type = skill_values[1]
-            attack_boost_mod = skill_values[2]
-            attack_boost_flat = skill_values[3]
-            crit_boost = skill_values[4]
-            element_boost_mod = skill_values[5]
-            element_boost_flat = skill_values[6]
-            element_type = skill_values[7]
-            element_crit_boost = skill_values[8]
-            affinity_boost = skill_values[9]
-            status_mod = skill_values[10]
-            status_flat = skill_values[11]
-            status_type = skill_values[12]
-            handicraft_units = skill_values[13]
-            defense_boost_mod = skill_values[14]
-            defense_boost_flat = skill_values[15]
-            elemental_resistance = skill_values[16]
-            elemental_resistance_type = skill_values[17]
-
-            attack = (attack * attack_boost_mod) + attack_boost_flat
-            element = (element * element_boost_mod) + element_boost_flat
-            affinity = affinity + affinity_boost
-            crit_mod = crit_boost
-            ecrit_mod = element_crit_boost
+            print(attack, element, affinity, crit_boost, element_crit_boost)
+            print(skill_name, skill_type, attack_boost_mod, attack_boost_flat, crit_boost, element_boost_mod,\
+            element_boost_flat, element_type, element_crit_boost, affinity_boost, status_mod, status_flat,\
+            status_type, handicraft_units, defense_boost_mod, defense_boost_flat, elemental_resistance,\
+            elemental_resistance_type)
+            attack = int(attack) * int(attack_boost_mod) + int(attack_boost_flat)
+            element = int(element) * int(element_boost_mod) + int(element_boost_flat)
+            affinity = int(affinity) + int(affinity_boost)
+            crit_mod = int(crit_boost)
+            ecrit_mod = int(element_crit_boost)
 
     raw_damage = float(attack) * (1 + float(crit_mod) * float(affinity / 100)) * float(raw / 100) * float(sharpness) * float(damage_resist / 100)
     element_damage = float(element) * (1 + (float(ecrit_mod) * float(affinity/ 100))) * float(element_mod) * float(esharpness) * float(element_resist / 100)
@@ -357,6 +366,11 @@ while main == 0:
                 print(skills + ' is an invalid input. Try again.')
                 continue
             saved_list.append(skills)
+        if len(saved_list) > 1:
+            saved_list = skill_check(saved_list)
+            print(saved_list)
+        else:
+            print(saved_list)
         skills_flag = 1
         continue
     elif operation == 3 and values_flag == 1:
