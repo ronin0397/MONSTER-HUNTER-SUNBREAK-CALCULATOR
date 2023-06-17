@@ -25,7 +25,7 @@ version 1.1 (complete)
 -has basic error handling. Wrong inputs will force an exit from the current loop back to main menu. 
 -lacks restrictions that would be 'illegal' in game. (ie attack up 7 and attack up 5 in the same skill pool). 
 
-version 1.2 goal
+version 1.5 goal
 -finish databases and associated exceptions. 
 -load entire sets using string/split function. 
 
