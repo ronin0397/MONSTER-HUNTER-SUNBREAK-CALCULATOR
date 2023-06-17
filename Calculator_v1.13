@@ -18,7 +18,11 @@ def create_table():
         sharpness INT,
         esharpness INT,
         slots CHAR(5) NOT NULL,
-        rampage_slots INT
+        rampage_slot INT,
+        sharpness_upgrade INT,
+        purple_sharpness INT,
+        white_sharpness INT,
+        blue_sharpness INT
         );
     """
     cursor_obj.execute(weapon_table)
@@ -120,11 +124,17 @@ def load_table():
             esharpness = row1[9]
             slots = row1[10]
             rampage_slots = row1[11]
+            sharpness_upgrade = row1[12]
+            purple = row1[13]
+            white = row1[14]
+            blue = row1[15]
             cursor_obj.execute("INSERT INTO weapon (""name, weapon_type, raw_attack, affinity, element, status,"
-                               "type, sub_type, sharpness, esharpness, slots, rampage_slots)"
-                               "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+                               "type, sub_type, sharpness, esharpness, slots, rampage_slot, sharpness_upgrade, purple_sharpness, "
+                               "white_sharpness, blue_sharpness)"
+                               "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                                (name, weapon_type, raw_attack, affinity, element, status,
-                                element_type, sub_type, sharpness, esharpness, slots, rampage_slots))
+                                element_type, sub_type, sharpness, esharpness, slots, rampage_slots, sharpness_upgrade,
+                                purple, white, blue))
     connection_obj.commit()
     connection_obj.close()
 
@@ -250,9 +260,10 @@ def skill_check(skills):
         elif bool(check_1[0] == check_2[0]) & bool(check_1[1] > check_2[1]):
             legal_list.pop(i - 1)
             legal_list.append(skills[i])
-        elif bool(len(check_3) > 1) & bool(len(check_4) > 1) & bool(check_3[1] != check_4[1]):
-            legal_list.pop(i-1)
-            legal_list.append(skills[i+1])
+        elif bool(len(check_3) > 1) & bool(len(check_4) > 1):
+            if (check_3[1] != check_4[1]):
+                legal_list.pop(i-1)
+                legal_list.append(skills[i+1])
         elif bool(check_1[0] != check_2[0]):
             legal_list.append(skills[i+1])
     return legal_list
@@ -262,7 +273,7 @@ def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
     ecrit_mod = 0
     skill_values = []
     name, weapon_type, attack, affinity, element, status, element_type, \
-    subtype, sharpness, esharpness, slots, rampage = \
+    subtype, sharpness, esharpness, slots, rampage, sharpness_upgrade, purple, white, blue = \
         call('weapon.db', 'weapon', weapon_name, 'none')
 
     weapon_type, move_name, damage_type, raw, element_mod, \
@@ -300,21 +311,30 @@ def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
             status_type, handicraft_units, defense_boost_mod, defense_boost_flat, elemental_resistance,\
             elemental_resistance_type = \
                 call('skills.db', 'skills', skill_names[i], 'none')
-            print(attack, element, affinity, crit_boost, element_crit_boost)
-            print(skill_name, skill_type, attack_boost_mod, attack_boost_flat, crit_boost, element_boost_mod,\
-            element_boost_flat, element_type, element_crit_boost, affinity_boost, status_mod, status_flat,\
-            status_type, handicraft_units, defense_boost_mod, defense_boost_flat, elemental_resistance,\
-            elemental_resistance_type)
-            attack = int(attack) * int(attack_boost_mod) + int(attack_boost_flat)
-            element = int(element) * int(element_boost_mod) + int(element_boost_flat)
-            affinity = int(affinity) + int(affinity_boost)
-            crit_mod = int(crit_boost)
-            ecrit_mod = int(element_crit_boost)
 
-    raw_damage = float(attack) * (1 + float(crit_mod) * float(affinity / 100)) * float(raw / 100) * float(sharpness) * float(damage_resist / 100)
-    element_damage = float(element) * (1 + (float(ecrit_mod) * float(affinity/ 100))) * float(element_mod) * float(esharpness) * float(element_resist / 100)
+            attack = float(attack) * float(attack_boost_mod) + float(attack_boost_flat)
+            element = float(element) * float(element_boost_mod) + float(element_boost_flat)
+            #dragon conversion clause
+            affinity = float(affinity) + float(affinity_boost)
+            crit_mod = float(crit_boost)
+            ecrit_mod = float(element_crit_boost)
+            upgrade = handicraft_units - (sharpness_upgrade * 10)
+            if bool(upgrade > 0) & bool(white > 0) & bool(purple == 0):
+                purple += upgrade
+                sharpness = 1.39
+                esharpness = 1.2
+            elif bool(upgrade > 0) & bool(blue > 0) & bool(white == 0):
+                white += upgrade
+                sharpness = 1.32
+                esharpness = 1.125
+            elif bool(purple > 0):
+                purple += handicraft_units
+            elif bool(white > 0) & bool(purple == 0):
+                white += handicraft_units
+    raw_damage = float(attack) * (1 + float(crit_mod) * float(affinity / 100)) * float(raw / 100) * sharpness * float(damage_resist / 100)
+    element_damage = float(element) * (1 + (float(ecrit_mod) * float(affinity/ 100))) * float(element_mod) * esharpness * float(element_resist / 100)
     damage = raw_damage + element_damage
-    print("Motion Damage is: ", int(damage))
+    print("Motion Damage is: ", damage)
     return damage
 
 # main
