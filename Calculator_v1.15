@@ -271,7 +271,11 @@ def skill_check(skills):
 def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
     crit_mod = 0.25
     ecrit_mod = 0
+    element_resist = 'none'
     skill_values = []
+    dragon_conversion_flag = 0
+    elemental_resistance_total = 0
+
     name, weapon_type, attack, affinity, element, status, element_type, \
     subtype, sharpness, esharpness, slots, rampage, sharpness_upgrade, purple, white, blue = \
         call('weapon.db', 'weapon', weapon_name, 'none')
@@ -302,22 +306,35 @@ def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
         element_resist = thunder
     elif element_type == 'dragon':
         element_resist = dragon
-    else:
-        element_resist = 1
+
     if skill_names != 'none':
         for i in range(len(skill_names)):
             skill_name, skill_type, attack_boost_mod, attack_boost_flat, crit_boost, element_boost_mod,\
-            element_boost_flat, element_type, element_crit_boost, affinity_boost, status_mod, status_flat,\
+            element_boost_flat, elemental_type, element_crit_boost, affinity_boost, status_mod, status_flat,\
             status_type, handicraft_units, defense_boost_mod, defense_boost_flat, elemental_resistance,\
             elemental_resistance_type = \
                 call('skills.db', 'skills', skill_names[i], 'none')
 
+            # element clause
+            if bool(element_type != elemental_type) ^ (elemental_type != all):
+                element_boost_flat = 0
+                element_boost_mod = 1
+
             attack = float(attack) * float(attack_boost_mod) + float(attack_boost_flat)
             element = float(element) * float(element_boost_mod) + float(element_boost_flat)
-            #dragon conversion clause
             affinity = float(affinity) + float(affinity_boost)
             crit_mod = float(crit_boost)
             ecrit_mod = float(element_crit_boost)
+
+            #dragon conversion clause
+            if elemental_resistance != 'all':
+                elemental_resistance_total += elemental_resistance
+            elif elemental_resistance_type == 'all':
+                elemental_resistance_total += elemental_resistance * 5
+            elif skill_name == 'dragon conversion +3':
+                dragon_conversion_flag = 1
+
+            #sharpness clause
             upgrade = handicraft_units - (sharpness_upgrade * 10)
             if bool(upgrade > 0) & bool(white > 0) & bool(purple == 0):
                 purple += upgrade
@@ -331,10 +348,11 @@ def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
                 purple += handicraft_units
             elif bool(white > 0) & bool(purple == 0):
                 white += handicraft_units
+        element_boost_flat += float(dragon_conversion_flag * elemental_resistance_total/4)
     raw_damage = float(attack) * (1 + float(crit_mod) * float(affinity / 100)) * float(raw / 100) * sharpness * float(damage_resist / 100)
     element_damage = float(element) * (1 + (float(ecrit_mod) * float(affinity/ 100))) * float(element_mod) * esharpness * float(element_resist / 100)
     damage = raw_damage + element_damage
-    print("Motion Damage is: ", damage)
+    print("Motion Damage is: ", int(damage))
     return damage
 
 # main
