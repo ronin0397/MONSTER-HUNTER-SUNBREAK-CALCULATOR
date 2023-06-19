@@ -25,18 +25,10 @@ version 1.1 (complete)
 -has basic error handling. Wrong inputs will force an exit from the current loop back to main menu. 
 -lacks restrictions that would be 'illegal' in game. (ie attack up 7 and attack up 5 in the same skill pool). 
 
-version 1.5 goal
--finish databases and associated exceptions. 
--load entire sets using string/split function. 
-
-version 2 goal
--store results into a database to perform analysis with. 
--connect with tableau to make dashboards of charge blade damage
-
-version 3 goal
--interface is archaic and will aim for formal UI. 
-
-version 4 goal
--make this program an app (if possible)
-
-
+version 1.5 (complete)
+-finished skills and monster databases associated exceptions. 
+  -dragon conversion
+  -handicraft/sharpnes upgrade
+  -conditional/non conditional boosts
+  -same skills, but with different levels loaded into the same list
+-refer to 0 input for exact input syntax.
