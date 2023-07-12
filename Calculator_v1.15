@@ -315,6 +315,12 @@ def damage_calc(weapon_name, motion_name, monster_name, part, skill_names):
             elemental_resistance_type = \
                 call('skills.db', 'skills', skill_names[i], 'none')
 
+            # exploit clause
+            if (damage_resist < 45) & (skill_name[0:15] == 'weakness exploit'):
+                affinity_boost = 0
+            if (element_resist < 20) & (skill_names[0:14] == 'element exploit'):
+                element_boost_mod = 1
+
             # element clause
             if bool(element_type != elemental_type) ^ (elemental_type != all):
                 element_boost_flat = 0
